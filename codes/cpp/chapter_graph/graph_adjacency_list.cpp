@@ -9,7 +9,7 @@
 /* 基于邻接表实现的无向图类 */
 class GraphAdjList {
   public:
-    // 邻接表，key：顶点，value：该顶点的所有邻接顶点
+    // 邻接表，key：顶点，value：该顶点的所有邻接顶点    其中键值与值都是Vertex的类指针，这是用类存储值，以避开用数组存值一旦删除所有索引都要变的问题
     unordered_map<Vertex *, vector<Vertex *>> adjList;
 
     /* 在 vector 中删除指定节点 */

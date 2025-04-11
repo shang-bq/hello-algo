@@ -17,7 +17,9 @@ struct Vertex {
     }
 };
 
-/* 输入值列表 vals ，返回顶点列表 vets */
+/* 输入值列表 vals ，返回顶点列表 vets */     
+/*这段 C++ 代码定义了一个函数 valsToVets，它的作用是：
+将一个整型值的列表 vals，转换成对应的 Vertex 对象指针列表 vets*/
 vector<Vertex *> valsToVets(vector<int> vals) {
     vector<Vertex *> vets;
     for (int val : vals) {

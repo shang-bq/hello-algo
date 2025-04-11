@@ -11,7 +11,7 @@
 
 using namespace std;
 
-/* 二叉树节点结构体 */
+/* 二叉树节点结构体 */       /*定义了一个扩展的二叉树节点结构，比基础二叉树节点包含了更多信息*/
 struct TreeNode {
     int val{};
     int height = 0;

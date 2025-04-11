@@ -80,7 +80,10 @@ class HashMapChaining {
         // 遍历桶，从中删除键值对
         for (int i = 0; i < bucket.size(); i++) {
             if (bucket[i]->key == key) {
-                Pair *tmp = bucket[i];
+                Pair *tmp = bucket[i];        /*先保存内存内容，而后删除桶中的指针，
+                                                之后再释放内存，注意不能只删除桶中的指针，
+                                                这样实际的键值对没有被删除，其次要先删除键值对指针，
+                                                再释放内存，不然会引起内存泄漏*/
                 bucket.erase(bucket.begin() + i); // 从中删除键值对
                 delete tmp;                       // 释放内存
                 size--;

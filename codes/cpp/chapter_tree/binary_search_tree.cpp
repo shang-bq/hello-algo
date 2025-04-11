@@ -123,7 +123,8 @@ class BinarySearchTree {
                 tmp = tmp->left;
             }
             int tmpVal = tmp->val;
-            // 递归删除节点 tmp
+            // 递归删除节点 tmp      /**tmp可能还会有右子树，直接删除会右子树丢失，而remove已经实现所有节点的删除,所以可以用remove删除tmp防止右子树丢失                                 
+                                                                    
             remove(tmp->val);
             // 用 tmp 覆盖 cur
             cur->val = tmpVal;

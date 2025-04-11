@@ -16,7 +16,9 @@ class AVLTree {
     }
 
     /* 右旋操作 */
-    TreeNode *rightRotate(TreeNode *node) {
+    TreeNode *rightRotate(TreeNode *node) {       /*节点高度由其子树决定
+                                                    由于grandChild的子树没有变化
+                                                    ，其高度自然不变,所以不用更新高度*/
         TreeNode *child = node->left;
         TreeNode *grandChild = child->right;
         // 以 child 为原点，将 node 向右旋转

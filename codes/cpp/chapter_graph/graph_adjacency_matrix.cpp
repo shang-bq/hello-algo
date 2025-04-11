@@ -21,7 +21,10 @@ class GraphAdjMat {
         // 添加边
         // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
         for (const vector<int> &edge : edges) {
-            addEdge(edge[0], edge[1]);
+            addEdge(edge[0], edge[1]);     /*这里添加边的实现方式是因为edge本身是一个包含两个
+                                            元素的向量，这两个分别是0号索引与1号索引，对应有边连接
+                                            的图中的顶点，在添加边时，只把这些有边连接的顶点传入加
+                                            边函数中，执行邻接矩阵制一*/
         }
     }
 
@@ -35,7 +38,9 @@ class GraphAdjMat {
         int n = size();
         // 向顶点列表中添加新顶点的值
         vertices.push_back(val);
-        // 在邻接矩阵中添加一行
+        // 在邻接矩阵中添加一行                          /*这里是一个vector的内置方法可以在末尾加一个
+                                                        /*n行的0值，底下的加列是遍历vector每一行
+                                                        ，在末尾都加个零实现加列*/
         adjMat.emplace_back(vector<int>(n, 0));
         // 在邻接矩阵中添加一列
         for (vector<int> &row : adjMat) {

@@ -5,7 +5,8 @@
  */
 
 #include "../utils/common.hpp"
-
+  /*下面的函数都要子啊里面定义n0节点的后一个节点，很不方便，每一个链表连接都要定义，
+  可以自定义第一个链表连接函数
 /* 在链表的节点 n0 之后插入节点 P */
 void insert(ListNode *n0, ListNode *P) {
     ListNode *n1 = n0->next;

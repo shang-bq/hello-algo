@@ -11,7 +11,7 @@ vector<int> levelOrder(TreeNode *root) {
     // 初始化队列，加入根节点
     queue<TreeNode *> queue;
     queue.push(root);
-    // 初始化一个列表，用于保存遍历序列
+    // 初始化一个列表，用于保存遍历序列        注意下面的vec指的是列表容器，而不是队列容器
     vector<int> vec;
     while (!queue.empty()) {
         TreeNode *node = queue.front();

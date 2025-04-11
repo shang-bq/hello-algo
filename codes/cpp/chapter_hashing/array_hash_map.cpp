@@ -4,6 +4,14 @@
  * Author: msk397 (machangxinq@gmail.com)
  */
 
+
+  /*for (Pair *pair : buckets)  这里pair只是个局部变量，可以看做int i
+    等价于：for (auto it = buckets.begin(); it != buckets.end(); ++it) {
+            Pair *pair = *it;  // *it 就是 buckets 里的一个 Pair*
+            // 循环体...
+    }*/
+
+
 #include "../utils/common.hpp"
 
 /* 键值对 */
@@ -68,7 +76,7 @@ class ArrayHashMap {
 
     /* 获取所有键值对 */
     vector<Pair *> pairSet() {
-        vector<Pair *> pairSet;
+        vector<Pair *> pairSet;    /*创造一个空的迭代器用于存储外部给定的哈希表*/
         for (Pair *pair : buckets) {
             if (pair != nullptr) {
                 pairSet.push_back(pair);
@@ -76,7 +84,6 @@ class ArrayHashMap {
         }
         return pairSet;
     }
-
     /* 获取所有键 */
     vector<int> keySet() {
         vector<int> keySet;
@@ -108,3 +115,4 @@ class ArrayHashMap {
 };
 
 // 测试样例请见 array_hash_map_test.cpp
+

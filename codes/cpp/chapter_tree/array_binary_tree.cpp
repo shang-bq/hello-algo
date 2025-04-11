@@ -77,7 +77,7 @@ class ArrayBinaryTree {
   private:
     vector<int> tree;
 
-    /* 深度优先遍历 */
+    /* 深度优先遍历 */     /*if只管后面一行，本质是不断递归，根据order的不同，在不同时刻压入vec中值*/
     void dfs(int i, string order, vector<int> &res) {
         // 若为空位，则返回
         if (val(i) == INT_MAX)

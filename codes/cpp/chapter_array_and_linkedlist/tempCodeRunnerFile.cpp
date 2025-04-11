@@ -1,0 +1,1 @@
+    int index = find(n0, 2);

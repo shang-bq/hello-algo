@@ -65,7 +65,13 @@ class HashMapOpenAddressing {
             index = (index + 1) % capacity;
         }
         // 若 key 不存在，则返回添加点的索引
-        return firstTombstone == -1 ? index : firstTombstone;
+        return firstTombstone == -1 ? index : firstTombstone;   /*如果定义的Tombstone还是-1
+                                                                说明key不存在
+                                                                或者找到key的索引点之前并没有tombstone，
+                                                                返回的是桶的索引
+                                                                如果tombstone变化了，说明找到了
+                                                                原来的空位置，而key也会移动到这
+                                                                所以这里也是key的索引*/
     }
 
     /* 查询操作 */
@@ -104,7 +110,11 @@ class HashMapOpenAddressing {
         int index = findBucket(key);
         // 若找到键值对，则用删除标记覆盖它
         if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
-            delete buckets[index];
+            delete buckets[index];         /*此处不用tmp指针暂存，因为这行删除了桶索引所
+                                            指向的内存，而后对于此处桶指针，没有删除而是下
+                                            一行用一个tombstone去代替，不像hash_map_chaining
+                                            中删除了指针，找不到指针指向的内存，
+                                            会引发后续的内存泄漏*/
             buckets[index] = TOMBSTONE;
             size--;
         }

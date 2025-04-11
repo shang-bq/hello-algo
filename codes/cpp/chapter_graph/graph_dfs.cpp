@@ -36,7 +36,8 @@ int main() {
     /* 初始化无向图 */
     vector<Vertex *> v = valsToVets(vector<int>{0, 1, 2, 3, 4, 5, 6});
     vector<vector<Vertex *>> edges = {{v[0], v[1]}, {v[0], v[3]}, {v[1], v[2]},
-                                      {v[2], v[5]}, {v[4], v[5]}, {v[5], v[6]}};
+                                      {v[2], v[5]}, {v[4], v[5]}, {v[5], v[6]}};    /*注意这里的v中的元素
+                                      代表的是上述定点类中的索引而不是其中的数*/
     GraphAdjList graph(edges);
     cout << "\n初始化后，图为" << endl;
     graph.print();
