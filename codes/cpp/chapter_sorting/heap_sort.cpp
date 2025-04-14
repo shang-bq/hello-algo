@@ -32,7 +32,7 @@ void siftDown(vector<int> &nums, int n, int i) {
 void heapSort(vector<int> &nums) {
     // 建堆操作：堆化除叶节点以外的其他所有节点
     for (int i = nums.size() / 2 - 1; i >= 0; --i) {
-        siftDown(nums, nums.size(), i);
+        siftDown(nums, nums.size(), i);       /*此处人工建堆*/
     }
     // 从堆中提取最大元素，循环 n-1 轮
     for (int i = nums.size() - 1; i > 0; --i) {

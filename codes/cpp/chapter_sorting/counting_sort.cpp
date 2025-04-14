@@ -5,7 +5,7 @@
  */
 
 #include "../utils/common.hpp"
-
+/*通过用数组的索引作为计数，计算元素出现次数，从而再用一个数组还原
 /* 计数排序 */
 // 简单实现，无法用于排序对象
 void countingSortNaive(vector<int> &nums) {

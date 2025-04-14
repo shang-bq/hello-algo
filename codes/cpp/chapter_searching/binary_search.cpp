@@ -24,11 +24,13 @@ int binarySearch(vector<int> &nums, int target) {
     return -1;
 }
 
-/* 二分查找（左闭右开区间） */
+/* 二分查找（左闭右开区间） */   
+/*注意由于是左闭右开区间，所以下面的if中的i与j的更新都要根据左闭右开区间定义
+所以j=m而不是m-1因为循环终值的条件的按照左闭右开区间定义的，如果j=m-1会使j错过区间*/
 int binarySearchLCRO(vector<int> &nums, int target) {
     // 初始化左闭右开区间 [0, n) ，即 i, j 分别指向数组首元素、尾元素+1
     int i = 0, j = nums.size();
-    // 循环，当搜索区间为空时跳出（当 i = j 时为空）
+    // 循环，当搜索区间为空时跳出（当 i = j 时为空）因为没有索引满足i<=index<j
     while (i < j) {
         int m = i + (j - i) / 2; // 计算中点索引 m
         if (nums[m] < target)    // 此情况说明 target 在区间 [m+1, j) 中

@@ -14,9 +14,11 @@ void insertionSort(vector<int> &nums) {
         // 内循环：将 base 插入到已排序区间 [0, i-1] 中的正确位置
         while (j >= 0 && nums[j] > base) {
             nums[j + 1] = nums[j]; // 将 nums[j] 向右移动一位
-            j--;
+            j-=1;
         }
         nums[j + 1] = base; // 将 base 赋值到正确位置
+        /*这是因为根据循环终止的条件，当跳出循环时，nums[j]
+        一定是小于等于base的所以base插入的位置应该是在nums[j+1]*/
     }
 }
 
